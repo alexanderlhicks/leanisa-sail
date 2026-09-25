@@ -1,0 +1,1 @@
+val print_endline = impure "print_endline_effect" : string -> unit

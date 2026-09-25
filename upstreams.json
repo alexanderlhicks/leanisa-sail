@@ -1,0 +1,25 @@
+{
+  "sail": {
+    "url": "https://github.com/rems-project/sail",
+    "branch": "sail2",
+    "revision": "ce60ba570b4402a42431bc5033145d9aeb327f20"
+  },
+  "lean_sail": {
+    "url": "https://github.com/rems-project/lean-sail",
+    "branch": "main",
+    "revision": "c816ea7ad03cce98d51acee252540fd4215fede8"
+  },
+  "leanvm": {
+    "url": "https://github.com/leanEthereum/leanVM",
+    "branch": "main",
+    "revision": "48a904208d682848dac0e18ef8b01ebfc40df9ad"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.29.0",
+  "z3": "4.15.4",
+  "mathlib": {
+    "url": "https://github.com/leanprover-community/mathlib4",
+    "revision": "8a178386ffc0f5fef0b77738bb5449d50efeea95",
+    "lock_file": "dependencies/algebra.lock.json",
+    "js_receipt_file": "dependencies/proofwidgets-js.json"
+  }
+}
