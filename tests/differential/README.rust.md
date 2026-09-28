@@ -1,0 +1,11 @@
+# Rust adapter
+
+The [adapter](oracle.rs) calls the pinned leanVM `F64` and `F192` addition and multiplication, `bytecode_columns`, BLAKE2s `compression` and `digest`, and `Program::assemble(...).execute(...)`. It contains JSON parsing and output conversion, with no duplicate ISA interpreter.
+
+Execution starts at the upstream `(pc, fp) = (g^0, g^0)` and must reach `(g^(B-1), g^0)`. The adapter installs no hints, filler blocks or witness floor. It checks that the upstream `cycles` equals the sum of `base_counts`, then exports `main_cycles`, final sparse memory, memory dimensions, encoded instructions and unconstrained reads. Individual execution trace rows are private in the pinned upstream API and are not exported. A Rust execution result is witness production; the Sail and leanerVM final-image checkers determine whether that image satisfies their semantics.
+
+Requests use the campaign JSONL contract. Every limb is exactly 16 lowercase hexadecimal digits. The adapter bounds bytecode at 4,096 instructions and offsets at 65,535; `bytecode_columns` allocates a generator-power table through the largest offset. These are testing resource limits, not ISA bounds. Invalid requests return `rejected`; upstream panics return `panic`. Wall-clock and process limits are enforced by the campaign runner.
+
+The [build helper](../../scripts/differential_rust.py) compares every tracked Rust checkout file's bytes and executable mode with the Git tree at `48a904208d682848dac0e18ef8b01ebfc40df9ad` before and after building. Hidden index flags and replacement refs do not bypass the check, and source symlinks are rejected. It captures the adapter and checked-in Cargo lock before compilation, builds the captured source offline in release mode, rejects subsequent input changes, and records source and binary hashes. The build output stays in the ignored campaign directory.
+
+The [source comparison record](rust-source-drift.json) compares the Rust revision documented by leanerVM (`a386121f`) with the adapter pin. Field modules and `Op` are byte-identical. The exact encoding and BLAKE API function bodies are also byte-identical. Execution changes add hint handlers which an empty hint map does not select; generator lookup changes reserve capacity. Changes to proving, witness construction and compiled hinted programs are outside this comparison.

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "leanerVM_documented_rust_revision": "a386121f84292f6fa663aaa3e570c15bc0240ea2",
+  "adapter_rust_revision": "48a904208d682848dac0e18ef8b01ebfc40df9ad",
+  "unchanged_files": {
+    "crates/primitives/src/field/mod.rs": "85ee9e0f195218887f3572750be78d01de7c1d68a2bae9fa969fead816fbd70a",
+    "crates/primitives/src/field/gf2_64.rs": "2ed9acfe528f175e88e4f0f1f26d33b9a3f059ee7c3d4e3ef0958dda8e95f00d",
+    "crates/primitives/src/field/gf2_64x3.rs": "fdd92b6e5a1cb002dab7ab68c6ec2ad1a97ccdd9e58e687236cf3cb4ca2a2809",
+    "crates/lean_vm/src/cpu/isa.rs": "b0d69b4f2d8c7da8fd7ec1b8144d34a7ad811e80d0952caed383ce7837938e53"
+  },
+  "unchanged_functions": {
+    "crates/lean_vm/src/cpu/layout.rs::pub fn bytecode_columns": "3f363fb101d332be77f0c2cef01bf1f03d1e193eb7992330c54fd9ab89b35fda",
+    "crates/lean_vm/src/hash_flock.rs::pub const fn metadata": "81b83f17d33da649b78f61e32d20c3a02023bdf428a43619e37a1da3ef29af74",
+    "crates/lean_vm/src/hash_flock.rs::pub const fn unpack_metadata": "37485c1d04617a698653095dabb872e2d6f0c1e9f75675fd013a7bb367c71c3f",
+    "crates/lean_vm/src/hash_flock.rs::pub fn compression": "80d1fb40b79af72caa0de0b7ca535360ed8482cc617ee48a7e818e86249feb09",
+    "crates/lean_vm/src/hash_flock.rs::pub fn digest": "035daacd0c6e0244a2188928e020d301bd668ef61df6d46e3984ad535ff6fe11"
+  },
+  "execution_difference": "execute.rs adds ResolveDeref, FrameAddress and AllocFrames hint handlers. The adapter installs an empty hint map. hints.rs changes GPow initial reserved capacity; its indexed powers and lookup algorithm are unchanged.",
+  "scope": "Arithmetic, Op representation, bytecode_columns, compression and no-hint hand-assembled execution. No assertion is made about proving or compiled hinted programs."
+}
