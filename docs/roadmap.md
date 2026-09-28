@@ -12,7 +12,7 @@ admissible leanVM executions to its immutable-image checker. The current
 | R1 Rust admissibility | Specify and validate which Rust traces preserve eager observations, address representations, advice and deferred equalities, and separate architectural memory from witness-table filling. Keep known disagreements as regressions. |
 | R2 Rust correspondence | Prove the admitted executor's field arithmetic, inverse, layout, bytecode/offset conversion, state transitions, and terminal results refine the [Sail contract](semantics.md), with explicit external and compiler assumptions. |
 | H1 compression | Prove the [Sail BLAKE2S implementation](../spec/blake2s.sail) against an independent compression definition, including chunks, rounds, counters, and arbitrary flag patterns; relate Rust compression separately. |
-| Tooling and release | Add a stable canonical program/advice/image CLI and replayable generation and fuzzing. Revalidate each future source snapshot against an exact manifest; this snapshot's result is in the [release record](release.md). |
+| Tooling and release | Extend the delivered [bounded three-target CLI](differential.md), seeded data generation and replay with structural control-flow/advice fuzzing, a general program/advice/image interface and Rust program-failure reduction. Revalidate each source snapshot against an exact manifest; accepted results are in the [release record](release.md). |
 
 For every gate, record exact source pins, explicit premises, kernel or
 executable checks as appropriate, negative controls, and an independent

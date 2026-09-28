@@ -50,6 +50,31 @@ reproduction commands.
 The [source manifest](source-manifest.sha256) hashes every file in this
 public tree except itself; it excludes ignored build output and Git metadata.
 
+## Three-target differential validation
+
+On 2026-09-28 UTC, an independent validator ran the standard seeded
+[three-target campaign](differential.md) and replayed its exact 201-input
+corpus. Both runs passed: 80 field multiplications, 80 additions, 22 BLAKE2S
+compressions, 18 encoding comparisons, 17 Rust executions, and 83 immutable
+image checks. All 300 observations, execution counts, coverage, source
+hashes, pins, and the corpus hash matched exactly. Actual execution covered
+all six instruction families; all 12 accepted replay cases retain their
+inputs and expected outcomes.
+
+The [compact differential receipt](differential-report.json) records the
+22 campaign source hashes, target and dependency pins, artifact digests,
+coverage, and full/replay report hashes. Its SHA-256 is
+`4dad826d581667ff3d10a4d84c3bb45ba62015569bcaf51558a31fc87fb342df`.
+Acceptance controls passed 21/21 normally and 21/21 under `-O`, followed by
+17 independent adversarial checks and two actual saved-count
+failure/reduction/replay rounds. Run logs and full local reports are omitted.
+
+Primitive results are compared across all three targets. Rust produces
+program witnesses, which Sail and leanerVM check independently. leanerVM
+uses its pinned Lean 4.33.1 interpreter, with rebuilt CompPoly and leanerVM
+modules and explicitly trusted prepared dependency caches. Arbitrary
+control-flow and hint-generating fuzzing remain outside this bounded profile.
+
 ## Public trust boundary
 
 The theorem statements and source files define the proof claims. The

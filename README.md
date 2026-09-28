@@ -43,5 +43,11 @@ O1/O2a/O2b controls, checks SMT properties, builds the Lean proofs, and
 audits their axioms. The [release record](docs/release.md) links the report
 for this source snapshot. Generated build output is ignored.
 
+For shared arithmetic, encoding, BLAKE2S, and final-image testing against
+both Rust leanVM and Lean leanerVM, use the
+[three-target differential campaign](docs/differential.md). It supports
+seeded generation, directed boundary cases, deterministic replay, and saved
+failures.
+
 Original work is licensed under [Apache-2.0](LICENSE). See
 [third-party notices](THIRD_PARTY_NOTICES.md) for external inputs.

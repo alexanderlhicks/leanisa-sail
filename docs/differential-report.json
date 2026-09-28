@@ -1,0 +1,266 @@
+{
+  "adapters": {
+    "leanervm": {
+      "compiler_commit": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+      "compiler_virtual_memory_limit_gib": 32,
+      "dependency_cache_hashes": {
+        "LeanSearchClient": {
+          "artifacts": 16,
+          "sha256": "66122df0fa47968dc8d37ae671533e3786a2b4893f0113cef5a6783624f88835"
+        },
+        "Qq": {
+          "artifacts": 56,
+          "sha256": "55142355958db16981d4bcde2f464a7a9181165ec9ea40a825b3273fc6430a02"
+        },
+        "aesop": {
+          "artifacts": 528,
+          "sha256": "3baf9f9b8e834f5c7a8183f90904a24e4212ffb65c698410d56860fbc4d7f1b5"
+        },
+        "batteries": {
+          "artifacts": 768,
+          "sha256": "ea3d47c9c699a18316872395193de3b6ec29e2a797597dbd56cf0605f3b8566a"
+        },
+        "importGraph": {
+          "artifacts": 44,
+          "sha256": "8481b0f4f8fecc9cac67fb8dc893a66be08c8213bff3fe746dd83a25076e3a42"
+        },
+        "mathlib": {
+          "artifacts": 33258,
+          "sha256": "c08c6d8868cf98527c17b7ebcba64349858d33ae32842e928af513d726f7e3bd"
+        },
+        "plausible": {
+          "artifacts": 52,
+          "sha256": "f561aabdafbacd08b988178d0ed7fd7b039b8943115d948280a536bf5b40fd07"
+        },
+        "proofwidgets": {
+          "artifacts": 52,
+          "sha256": "9c7e0f4f82d6b5482f57b6ee7e11eac82e3e9328d80fc97a7959098852a86928"
+        }
+      },
+      "dependency_patch": null,
+      "dependency_revisions": {
+        "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "CompPoly": "3468b38c8fd270f93f55a259220a8abc544e7437",
+        "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      "mode": "lean-interpreter",
+      "revision": "97ac443ae91d106333c1482b7164dc12c174bbe1",
+      "runtime_artifact_hashes": {
+        "adapter_sha256": "e1778a322562f2d8a39619aa7ad97cc702558ce8d70077eaa768df117125fea1",
+        "search_path_0": {
+          "artifacts": 155,
+          "sha256": "2c1e3456c703d3b0bbb6af70adbfed6121cc01c54fcae8b85c5de4d49fabf261"
+        },
+        "search_path_1": {
+          "artifacts": 41570,
+          "sha256": "0ff9dacd5c514bd138b8db3b3c6cf6d6e6e4e2738b7c01df6824bc18c569e413"
+        },
+        "search_path_2": {
+          "artifacts": 65,
+          "sha256": "af91887c356d63a8f9a219ece13fdd444781704f876eeb6caeda70df302a9bc9"
+        },
+        "search_path_3": {
+          "artifacts": 20,
+          "sha256": "0d9a5b4dbea520d70e8e7e96ac91451d56c69cfa4ce5f1578928ae86543f5e17"
+        },
+        "search_path_4": {
+          "artifacts": 55,
+          "sha256": "97b7fa13b2e09925af41a76e9f1041496087b2197ca88a2bd76ec890b610bb3c"
+        },
+        "search_path_5": {
+          "artifacts": 65,
+          "sha256": "ec34398bf0e7f695a43370c79519cdff188e5c23db3b998562e30bd862df8aa8"
+        },
+        "search_path_6": {
+          "artifacts": 660,
+          "sha256": "0692cd9ef418f616f6f7ea2474e61e5dfcb141029413c81c2e0ac76f5ae1be88"
+        },
+        "search_path_7": {
+          "artifacts": 70,
+          "sha256": "3cf8a10e4f21bb9ea25ab79968f4a7f3dc6451d21f132a2815c437f39167d13d"
+        },
+        "search_path_8": {
+          "artifacts": 960,
+          "sha256": "6efdf3e499c23d9df1bd986645e7d3ea31a2dac5cbc9aea6553f2d53bddf2456"
+        }
+      },
+      "source_hash_map": {
+        "files": 32,
+        "sha256": "9c8a8904d56d38f9a29709cdd23a9d9b670f05f1e078998900a44febe261792a"
+      },
+      "toolchain": "leanprover/lean4:v4.33.1"
+    },
+    "leanvm": {
+      "adapter_sha256": "a9d79158dd42e96c44a572935f4786ce675ee9500b6d8adf0633f1c7a5c69130",
+      "binary_sha256": "358f7b72811e9065349c8d309f1506ed48a0c3cd56aae37af32d28b2bfdb86d4",
+      "lock_sha256": "5637a6c45fc9ad73efce7ea9137b243b38054c1c749f3f07a0badedcfae60d0f",
+      "mode": "actual-rust-apis-no-hints-no-fillers",
+      "revision": "48a904208d682848dac0e18ef8b01ebfc40df9ad",
+      "source_hash_map": {
+        "files": 1126,
+        "sha256": "be70a06f26d97f56883bcd3b5681403a7dd41552af426115f5406ee4b24619da"
+      }
+    },
+    "sail": {
+      "cc_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "compiler_sha256": "b7590c5e2da1e032daf9d4a31492fd66dc2078f450771fd97da8ed46214e0815",
+      "compiler_version": "Sail 0.20.2 (sail2 @ ce60ba570b4402a42431bc5033145d9aeb327f20)",
+      "generated_artifact_map": {
+        "runs": 24,
+        "sha256": "6cd91bec50cff0aa93f34b963826681e37cfe3873a810399e7dfa8e3e73dfb29"
+      },
+      "mode": "generated-c",
+      "source_hash_map": {
+        "files": 3149,
+        "sha256": "1ef05acf93e84e758b5eb8c967f9fd096718c21c713c3f9e218d73eeeb8d325c"
+      }
+    }
+  },
+  "canonical_json": "UTF-8 json.dumps(value, sort_keys=True, separators=(\",\", \":\")); no trailing newline",
+  "controls": {
+    "actual_saved_count_replay_rounds": 2,
+    "independent_directed": 17,
+    "normal": 21,
+    "optimized": 21
+  },
+  "corpus_inputs": 201,
+  "corpus_sha256": "a9f292f838e0317fbcdcfea8244539440abae1efbf224bd792cc857e8a19ee28",
+  "counts": {
+    "add": 80,
+    "blake": 22,
+    "codec": 18,
+    "execute": 17,
+    "field": 80,
+    "image": 83
+  },
+  "counts_coverage_observations_sha256": "328cf7d768de5e5b39c73caeea396107ad1f92eb8a24f31f07424554af1cac38",
+  "coverage": {
+    "adapter_responses": {
+      "leanervm": 283,
+      "leanvm": 217,
+      "sail": 283
+    },
+    "checked_image_verdicts": {
+      "BadAccess": 1,
+      "BadInstance": 11,
+      "BadValue": 25,
+      "Halted": 25,
+      "OutOfFuel": 21
+    },
+    "deref_modes": {
+      "Cell": 4,
+      "Fp": 3,
+      "Pc": 3
+    },
+    "executed_instruction_counts": {
+      "blake": 3,
+      "deref": 7,
+      "jump": 8,
+      "mul": 5,
+      "set": 48,
+      "xor": 24
+    },
+    "instruction_occurrences": {
+      "blake": 4,
+      "deref": 10,
+      "jump": 10,
+      "mul": 6,
+      "set": 55,
+      "xor": 48
+    }
+  },
+  "exact_replay_matched_fields": [
+    "counts",
+    "coverage",
+    "observations",
+    "source_hashes",
+    "corpus_sha256",
+    "pins"
+  ],
+  "limits": {
+    "adapter_build_timeout_seconds": 1200.0,
+    "runtime_address_space_gib": 8,
+    "runtime_output_bytes": 16777216,
+    "runtime_timeout_seconds": 120.0
+  },
+  "observation_count": 300,
+  "pins": {
+    "common_domain": {
+      "blake_metadata": "64-bit counter followed by two raw 32-bit flags; high word limb is zero",
+      "fuel_max": 1024,
+      "memory_length_max": 131072,
+      "offset_max": 65535,
+      "program_length_max": 64,
+      "word_limbs": "three lowercase 16-digit hexadecimal u64 limbs, least significant first"
+    },
+    "leanervm": {
+      "documented_leanvm_revision": "a386121f84292f6fa663aaa3e570c15bc0240ea2",
+      "lean_toolchain": "leanprover/lean4:v4.33.1",
+      "revision": "97ac443ae91d106333c1482b7164dc12c174bbe1",
+      "url": "https://github.com/Verified-zkEVM/leanerVM"
+    },
+    "leanvm": {
+      "revision": "48a904208d682848dac0e18ef8b01ebfc40df9ad",
+      "scope": "hand-assembled programs with no hints, fillers, or proof generation",
+      "url": "https://github.com/leanEthereum/leanVM"
+    },
+    "rust_source_drift": "rust-source-drift.json",
+    "sail": {
+      "backend": "generated-c",
+      "revision": "ce60ba570b4402a42431bc5033145d9aeb327f20",
+      "url": "https://github.com/rems-project/sail"
+    },
+    "schema_version": 1
+  },
+  "profile": "bounded three-target arithmetic, encoding, compression and Rust final-image checking",
+  "python_optimized": true,
+  "random_cases": 16,
+  "reports_sha256": {
+    "full": "1f6690172714f9cc1f07643054bc29a4ad695ddd08f35c799335a8f761eebee5",
+    "replay": "8793e11880260016f2a519f77ee27c179cffef275a07a2a2d1b98482fc9d90f1"
+  },
+  "reviewed_utc": "2026-09-28T12:27:04Z",
+  "rust_flags": "-C target-cpu=native",
+  "schema_version": 1,
+  "scope": {
+    "accepted_replay_cases_preserved": 12,
+    "all_six_opcodes_executed": true,
+    "dependency_caches": "available prepared caches are trusted compiled inputs; required CompPoly and leanerVM modules rebuilt from source",
+    "fuzz_generation": "random primitive inputs and initialized program data; arbitrary control-flow and hints remain outside this profile",
+    "lean_execution": "pinned interpreter",
+    "program_comparison": "Rust witness generation checked by Sail run_indexed and leanerVM checkWithinFuel"
+  },
+  "seed": 20260928,
+  "source_hashes": {
+    "scripts/differential.py": "731f59cd870549b766a3d0a045d6749e9f18d7f930db9b96cc28bfbb4bbb8dc9",
+    "scripts/differential_lean.py": "57ecd70d791bef5cd41462535e8e1a0a35f4ba09902dd3240894f0fe896398fc",
+    "scripts/differential_rust.py": "17841786fd58c013325bb2ead30e986447b9b08312bc6a03d97f09f69f4cfac5",
+    "spec/blake2s.sail": "fbdd64434813528be171846e9d955816f490e5da6c69176cf45eecde9a5574c9",
+    "spec/encoding.sail": "b95f88ac8be5791f31d1a08da735ba6a87f7200cc4734589f8189ad343e2cf34",
+    "spec/field.sail": "a463f45689b3c76aee5f59a9815b96b09402cfea7f05c95ddde6b44418ee1330",
+    "spec/forward.sail": "82bb0d449f6ea061f223af26a4941299d72a798400ebc03aac6ed90627c701fd",
+    "spec/machine.sail": "c0061a73f15dca3db78356400baa948ed499b9aa8422b2c646abd5f1509070d9",
+    "spec/o2a_sparse_map.sail": "6b93e35945c53297e606d2fae89f12954a3e56e36e78faa80b5d8ee99874747b",
+    "spec/o2a_sparse_runner.sail": "98315039eb8a6dc937e095b5ada0003c219de61146677788f08c5ed223031e94",
+    "spec/o2b_candidate.sail": "2f25fbbd6d60b9dd3a055cc5e7ea082a2dd7a6a55a76fdf0a04c67f851f97fd7",
+    "tests/differential/LeanerVMOracle.lean": "e1778a322562f2d8a39619aa7ad97cc702558ce8d70077eaa768df117125fea1",
+    "tests/differential/README.rust.md": "5772aa3bce80aff989bd49507f0ea928cc7857407b08a4637830faf0a0a033a6",
+    "tests/differential/directed.json": "df07f836c8fdd88e2143c816a00bfb2bf3937aa624e60bbe29f5fbc7c1cd9176",
+    "tests/differential/oracle.rs": "a9d79158dd42e96c44a572935f4786ce675ee9500b6d8adf0633f1c7a5c69130",
+    "tests/differential/print.sail": "a31171207224c268689dc356c11b32d5dd7903cfa7d01167a85f972fef54f162",
+    "tests/differential/request.schema.json": "04613327cbbe3065a137b22605bd75cdb26dedd82b97e1dd3ba99c5516c52e6a",
+    "tests/differential/rust-source-drift.json": "3e9a7d20cc088ee51bce8c69fb1c6ff3c7e69bfc2e1b1bf99c6614324f5f1d19",
+    "tests/differential/targets.json": "628c7aac0767a1fc551af2c4c3da4432121e6e411fbaffdaecdc92bb8c4ba65f",
+    "tests/oracle.Cargo.lock": "5637a6c45fc9ad73efce7ea9137b243b38054c1c749f3f07a0badedcfae60d0f",
+    "tests/test_differential.py": "efd994314e2bd73d1e1c49ab30cf19a61ae7c4dc119806883d63f06e92e0ec72",
+    "upstreams.json": "79c5f3204efb53e73ce50629bd88b6282672162583c644ac779835bc1062d980"
+  },
+  "status": "pass"
+}

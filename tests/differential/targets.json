@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "sail": {
+    "url": "https://github.com/rems-project/sail",
+    "revision": "ce60ba570b4402a42431bc5033145d9aeb327f20",
+    "backend": "generated-c"
+  },
+  "leanvm": {
+    "url": "https://github.com/leanEthereum/leanVM",
+    "revision": "48a904208d682848dac0e18ef8b01ebfc40df9ad",
+    "scope": "hand-assembled programs with no hints, fillers, or proof generation"
+  },
+  "leanervm": {
+    "url": "https://github.com/Verified-zkEVM/leanerVM",
+    "revision": "97ac443ae91d106333c1482b7164dc12c174bbe1",
+    "lean_toolchain": "leanprover/lean4:v4.33.1",
+    "documented_leanvm_revision": "a386121f84292f6fa663aaa3e570c15bc0240ea2"
+  },
+  "rust_source_drift": "rust-source-drift.json",
+  "common_domain": {
+    "offset_max": 65535,
+    "program_length_max": 64,
+    "memory_length_max": 131072,
+    "fuel_max": 1024,
+    "word_limbs": "three lowercase 16-digit hexadecimal u64 limbs, least significant first",
+    "blake_metadata": "64-bit counter followed by two raw 32-bit flags; high word limb is zero"
+  }
+}

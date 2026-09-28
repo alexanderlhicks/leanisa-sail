@@ -1,0 +1,440 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alexanderlhicks/leanisa-sail/blob/main/tests/differential/request.schema.json",
+  "title": "Bounded leanISA differential request",
+  "description": "Sparse image indices must additionally be distinct and below memory_size; the Python validator enforces these relational bounds.",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "field"
+        },
+        "a": {
+          "$ref": "#/$defs/word"
+        },
+        "b": {
+          "$ref": "#/$defs/word"
+        }
+      },
+      "required": [
+        "kind",
+        "a",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "add"
+        },
+        "a": {
+          "$ref": "#/$defs/word"
+        },
+        "b": {
+          "$ref": "#/$defs/word"
+        }
+      },
+      "required": [
+        "kind",
+        "a",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "blake"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{16}$",
+            "minLength": 16,
+            "maxLength": 16
+          },
+          "minItems": 8,
+          "maxItems": 8
+        },
+        "cv": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{16}$",
+            "minLength": 16,
+            "maxLength": 16
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "md": {
+          "$ref": "#/$defs/chunk"
+        }
+      },
+      "required": [
+        "kind",
+        "message",
+        "cv",
+        "md"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "codec"
+        },
+        "program": {
+          "$ref": "#/$defs/program"
+        }
+      },
+      "required": [
+        "kind",
+        "program"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "execute"
+        },
+        "program": {
+          "$ref": "#/$defs/program"
+        },
+        "input": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/chunk"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "kind",
+        "program",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "image"
+        },
+        "program": {
+          "$ref": "#/$defs/program"
+        },
+        "input": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/chunk"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "memory_size": {
+          "enum": [
+            65536,
+            131072
+          ]
+        },
+        "fuel": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1024
+        },
+        "cells": {
+          "type": "array",
+          "maxItems": 131072,
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 131071
+              },
+              {
+                "$ref": "#/$defs/word"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "program",
+        "input",
+        "memory_size",
+        "fuel",
+        "cells"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$defs": {
+    "word": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{16}$",
+        "minLength": 16,
+        "maxLength": 16
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "chunk": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{16}$",
+          "minLength": 16,
+          "maxLength": 16
+        },
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{16}$",
+          "minLength": 16,
+          "maxLength": 16
+        },
+        {
+          "const": "0000000000000000"
+        }
+      ],
+      "items": false,
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "instruction": {
+      "oneOf": [
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "xor"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "mul"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "set"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/word"
+            }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "deref"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "enum": [
+                "Cell",
+                "Pc",
+                "Fp"
+              ]
+            }
+          ],
+          "items": false,
+          "minItems": 5,
+          "maxItems": 5
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "jump"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "blake"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          ],
+          "items": false,
+          "minItems": 8,
+          "maxItems": 8
+        }
+      ]
+    },
+    "program": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/instruction"
+      },
+      "anyOf": [
+        {
+          "minItems": 1,
+          "maxItems": 1
+        },
+        {
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "minItems": 4,
+          "maxItems": 4
+        },
+        {
+          "minItems": 8,
+          "maxItems": 8
+        },
+        {
+          "minItems": 16,
+          "maxItems": 16
+        },
+        {
+          "minItems": 32,
+          "maxItems": 32
+        },
+        {
+          "minItems": 64,
+          "maxItems": 64
+        }
+      ]
+    }
+  }
+}

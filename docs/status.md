@@ -15,6 +15,7 @@ the next proof gates.
 | O2b | [Bounded explicit MUL advice](../spec/o2b_candidate.sail) scans at most 64 supplied plans and retains at most eight matching candidates; the first compatible product is checked under Sail `emul`. Checked tags require immutable-image checker state and verdict agreement. The campaign includes 47 directed C/Lean envelopes, 26 O2a parity envelopes, source mutants, and corruption controls. |
 | Lean execution | [Conditional instruction and runner proofs](../proofs/WholeISA.lean) cover all six instructions, compatible observations and completion, finite prefixes, changing frames, repeated PCs, fuel, and sentinel outcomes. [Indexed runner equivalence](../proofs/IndexedRunner.lean) covers full Sail results, including error and fuel cases, under stated size premises. |
 | Lean arithmetic | [Base multiplication](../proofs/PolynomialMultiplication.lean), [extension multiplication](../proofs/ExtensionMultiplication.lean), [base](../proofs/BaseField.lean) and [cubic](../proofs/ExtensionField.lean) field structure, and a [source-shaped Lean extension inverse](../proofs/F1e5c.lean) equal to its accepted reference. These concern extracted Sail operations and Lean models, not external Rust execution. |
+| Differential testing | The [bounded three-target CLI](differential.md) invokes Sail, Rust leanVM and Lean leanerVM for full-limb arithmetic, encoding and BLAKE2S comparisons. Rust-produced final images are checked independently by both models. Seeded data generation, directed opcode/error/fuel cases, deterministic replay, saved failures and bounded primitive/image reduction are implemented. |
 
 The [validation procedure](validation.md) runs the complete C/Lean, SMT,
 proof, axiom, and operational-runner checks. Its machine-readable result is
@@ -33,9 +34,10 @@ linked from the [release record](release.md).
   every stable-observation premise.
 - Prove BLAKE2S compression against an independent mathematical reference
   and relate the actual Rust/hash implementation separately.
-- Deliver a stable execution/replay CLI and automated generation of
-  reproducible test corpora. No proof-system soundness or compiler
-  correctness claim follows from the current ISA work.
+- Extend the [bounded differential CLI](differential.md) with structural
+  control-flow/advice fuzzing, a general program/advice/image interface and
+  reduction of Rust program-generation failures. No proof-system soundness
+  or compiler correctness claim follows from the current ISA work.
 
 See [correspondence](correspondence.md) for the semantic split and
 [roadmap](roadmap.md) for the next gates.
