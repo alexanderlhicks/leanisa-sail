@@ -21,6 +21,14 @@ The [validation procedure](validation.md) runs the complete C/Lean, SMT,
 proof, axiom, and operational-runner checks. Its machine-readable result is
 linked from the [release record](release.md).
 
+The five historical read-before-write disagreements at the frozen Rust pin
+are covered by [leanVM issue #285](https://github.com/leanEthereum/leanVM/issues/285),
+closed on September 25, 2026 by
+[commit `5080c406`](https://github.com/leanEthereum/leanVM/commit/5080c406dc796d654a809987ff4273d571941dc8).
+Fresh replay at upstream revision
+`36accdd1eeb2f22dc2e10447c8d86f74bb66c5a5` rejects all five with
+`Fault::Conflict`; this repository retains its frozen pin and historical corpus.
+
 ## Open obligations
 
 - Prove source-bound O1/O2a/O2b generated-runner results satisfy the Lean
@@ -30,8 +38,9 @@ linked from the [release record](release.md).
   correctness. O2b currently accepts caller-supplied bounded candidates.
 - Establish an admissible Rust execution trace boundary, then prove its
   arithmetic, layout, encoding, addressing, control-flow, and checker
-  correspondence to Sail. Current Rust execution does not by itself satisfy
-  every stable-observation premise.
+  correspondence to Sail. Execution at the frozen Rust revision
+  `48a904208d682848dac0e18ef8b01ebfc40df9ad` does not by itself satisfy every
+  stable-observation premise.
 - Prove BLAKE2S compression against an independent mathematical reference
   and relate the actual Rust/hash implementation separately.
 - Extend the [bounded differential CLI](differential.md) with structural

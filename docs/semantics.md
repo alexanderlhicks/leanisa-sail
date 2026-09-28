@@ -20,7 +20,9 @@ The index is an execution aid, not architectural state or witness data. Callers 
 
 This interface makes reads before operational writes meaningful: the prover may have supplied those values in advance. It does not implement allocator state, hint streams, back-solving a missing MUL operand, deferred DEREF filling, or Rust's default zero for an unwritten cell. Those are witness-generation policies, whose correspondence to the image relation needs its own specification and proof.
 
-[Execution-to-image correspondence](correspondence.md) states a sufficient policy: eager observations fix their values, later assignments preserve them, and deferred equalities are checked on the completed image. Its observation-preservation theorem is proved in Lean. The current Rust executor does not enforce this policy, and its final `unconstrained_reads` list cannot certify image validity. The regression corpus covers arithmetic, control-flow, and aliasing disagreements, as well as valid unwritten values, deferred DEREF resolution, and MUL back-solving.
+[Execution-to-image correspondence](correspondence.md) states a sufficient policy: eager observations fix their values, later assignments preserve them, and deferred equalities are checked on the completed image. Its observation-preservation theorem is proved in Lean. The frozen Rust executor at `48a904208d682848dac0e18ef8b01ebfc40df9ad` does not enforce this policy, and its final `unconstrained_reads` list cannot certify image validity. The regression corpus covers arithmetic, control-flow, and aliasing disagreements, as well as valid unwritten values, deferred DEREF resolution, and MUL back-solving.
+
+All five historical read-before-write disagreements belong to [leanVM issue #285](https://github.com/leanEthereum/leanVM/issues/285), closed on September 25, 2026 by [commit `5080c406`](https://github.com/leanEthereum/leanVM/commit/5080c406dc796d654a809987ff4273d571941dc8). A fresh replay at upstream revision `36accdd1eeb2f22dc2e10447c8d86f74bb66c5a5` rejects all five with `Fault::Conflict`. The pinned corpus retains their historical outcomes.
 
 ## Instruction relations
 

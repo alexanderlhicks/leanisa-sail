@@ -87,9 +87,17 @@ metadata, and initialized 32-instruction program data. Program structure uses
 a bounded template with SET, XOR, MUL, all DEREF modes, BLAKE, taken and untaken
 JUMP. The directed corpus adds operand aliases, a changed/restored frame,
 singleton sentinel behavior, deferred equality, back-solving, and known
-read-before-write counterexamples. It retains the accepted expected outcomes
-of those counterexamples. Arbitrary control-flow and hint-generating program
-fuzzing remain outside this initial profile.
+read-before-write counterexamples. Their accepted expected outcomes describe
+the frozen Rust revision `48a904208d682848dac0e18ef8b01ebfc40df9ad`.
+All five historical disagreements belong to
+[leanVM issue #285](https://github.com/leanEthereum/leanVM/issues/285), closed
+on September 25, 2026 by
+[commit `5080c406`](https://github.com/leanEthereum/leanVM/commit/5080c406dc796d654a809987ff4273d571941dc8).
+Fresh replay at upstream revision
+`36accdd1eeb2f22dc2e10447c8d86f74bb66c5a5` rejects all five with
+`Fault::Conflict`. The campaign retains its frozen target pins and corpus.
+Arbitrary control-flow and hint-generating program fuzzing remain outside
+this initial profile.
 
 Every successful Rust image is checked with zero, exact, insufficient, and
 surplus fuel, and with a corrupted public input cell. Surplus fuel is omitted
